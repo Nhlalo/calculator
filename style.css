@@ -16,19 +16,19 @@ body{
 }
 h1{
   text-align: center;
-  color: Black;
+  color: rgb(20, 20,80);
 }
 header{
   width: 90%;
-  margin-inline:auto;
+  margin:0  auto;
 }
 main{
   display: flex;
-  flex-grow: 0.7;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   width: 90%;
-  margin-inline: auto;
+  margin:0 auto;
   margin-bottom: 1rem;
 }
 
@@ -127,6 +127,7 @@ footer{
 }
 footer div{
   text-align: center;
+  color: rgb(20, 20,80);
 }
 
 @media (max-width : 385px){
@@ -139,14 +140,13 @@ footer div{
     font-size: 1.5rem;
   }
   .outputContainer div:nth-child(1){
-   
-
     font-size: 1rem;
   }
   .outputContainer div:nth-child(2){
-    
     font-size: 1.5rem;
-  
+  }
+  .outputContainer div:nth-child(3){
+    font-size: 1rem;
   }
 
 }
