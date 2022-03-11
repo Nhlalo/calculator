@@ -22,19 +22,26 @@ numbers.forEach(number => {
       }
 
       if(e.target.innerText == '.' && containDot){
-       containDot = false;
+       if(!num2){
+         display2.textContent = '0' + num2;
+         containDot = false;
+       }
+      else if(num2){
+        containDot = false;
+      }
 
       }else if(e.target.innerText == '.' && !containDot){
         
         return;
       }
       if(e.target.innerText === '+/-' && containNegativeSign){
-        if(num2){
-          display2.textContent = "-" + num2
-          num2 = (-1 * num2);
+        if(num2 && num2 != '0' && num2 != '.'){
+          display2.textContent = '-' + num2
+          num2 = (-1 * num2)
+        
           containNegativeSign = false;
          
-        }if(!num2){
+        }if(!num2 && num2 != '0' && num2 != '.'){
         display2.textContent += '-';
         num2 += '-';
         containNegativeSign = false;
@@ -43,10 +50,7 @@ numbers.forEach(number => {
       }else if(e.target.innerText === '+/-' && !containNegativeSign){
        return;
       }
-      else if(num2 == '0'){
-      containDot = true;
-      num2 += '0'
-      }
+    
       else{
       display2.textContent += e.target.innerText;
       num2 += e.target.innerText
@@ -71,7 +75,7 @@ let operatorSign = '';
 
 operations.forEach(operation => {
   operation.addEventListener('click', e => {
-    if(num2 == "-" ) return;
+    if(!num2 || num2 == "-" || num2 == '.' ) return;
    
     equal()
     if( containNum1){
@@ -92,7 +96,11 @@ operations.forEach(operation => {
 
 let results = '';
 function calc(operator,num1,num2){
-  if(num2 != '-'){
+  if( num2 == '-' || num2 == '.'){
+    alert('additional number is missing')
+    results = num1;
+  }
+  else if(num2 != '-'){
   if(operator == '+'){
     results = Number(num1) + Number(num2);}
   else if ( operator == '-'){
@@ -105,10 +113,7 @@ function calc(operator,num1,num2){
     results = Number(num1) / Number(num2);}
   else if( operator == '×'){
   results = Number(num1) * Number(num2)};}
-  else if( num2 == '-'){
-    alert('additional number is missing')
-    results = num1;
-  }
+  
 }
 
 function equal(){
@@ -144,11 +149,13 @@ equalSign.addEventListener('click',equal)
 function clearAll(){
   num1 = '';
   num2 =  '';
+  operatorSign = '';
   display1.textContent = '';
   display2.textContent = '';
   containZero = true;
   containDot = true;
   containNegativeSign = true;
+  containNum1 = true;
 }
 document.querySelector('.clearSign').addEventListener('click',clearAll)
 
