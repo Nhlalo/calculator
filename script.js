@@ -71,7 +71,7 @@ let operatorSign = '';
 
 operations.forEach(operation => {
   operation.addEventListener('click', e => {
-    if(!num2 || num2 == "-" ) return;
+    if(num2 == "-" ) return;
    
     equal()
     if( containNum1){
