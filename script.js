@@ -150,7 +150,9 @@ function equal(){
     display2.textContent = strToNum;
     num2 = Number(strToNum.toPrecision(15));
   }
-  
+  if(results.toString().includes('.')){
+    containDot = false;
+  }
 
   display1.textContent = ''
   num1 = ''
