@@ -154,6 +154,9 @@ function equal(){
   if(results.toString().includes('.')){
     containDot = false;
   }
+  if(results.toString().includes('-')){
+    containNegativeSign = false;
+  }
   
   display1.textContent = ''
   num1 = ''
