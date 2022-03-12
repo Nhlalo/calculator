@@ -36,7 +36,7 @@ numbers.forEach(number => {
       }
       if(e.target.innerText === '+/-' && containNegativeSign){
         if(num2 && num2 != '0' && num2 != '.'){
-          if(num2.startsWith('.')){
+          if(num2.toString().startsWith('.')){
           display2.textContent = '-' + '0' + num2
           num2 = (-1 * num2)
         
@@ -133,6 +133,7 @@ function equal(){
   if(!num1){
     return}
     containNum1 = true;
+    containNegativeSign = true;
   calc(operatorSign,num1,num2)
   
   let numToStr = results.toString();
@@ -153,7 +154,7 @@ function equal(){
   if(results.toString().includes('.')){
     containDot = false;
   }
-
+  
   display1.textContent = ''
   num1 = ''
 
