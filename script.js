@@ -36,10 +36,18 @@ numbers.forEach(number => {
       }
       if(e.target.innerText === '+/-' && containNegativeSign){
         if(num2 && num2 != '0' && num2 != '.'){
-          display2.textContent = '-' + num2
+          if(num2.startsWith('.')){
+          display2.textContent = '-' + '0' + num2
           num2 = (-1 * num2)
         
           containNegativeSign = false;
+          }else{
+            display2.textContent = '-' + num2
+            num2 = (-1 * num2)
+          
+            containNegativeSign = false;
+
+          }
          
         }if(!num2 && num2 != '0' && num2 != '.'){
         display2.textContent += '-';
@@ -54,7 +62,12 @@ numbers.forEach(number => {
       else{
       display2.textContent += e.target.innerText;
       num2 += e.target.innerText
-      containZero = true;
+    
+      if(num2 == '0'){
+        containZero = false;
+      }else if(num2 != '0'){
+        containZero = true;
+      }
       }
       }
       
