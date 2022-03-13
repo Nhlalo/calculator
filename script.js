@@ -155,7 +155,7 @@ function equal(){
     containDot = false;
   }
   if(results.toString().includes('-')){
-    containNegativeSign = false;
+    containNegativeSign0 = false;
   }
   
   display1.textContent = ''
@@ -179,12 +179,18 @@ function clearAll(){
 document.querySelector('.clearSign').addEventListener('click',clearAll)
 
 function removeLastDigit(){
-  containZero = true;
-  containDot = true;
-  containNegativeSign = true;
+
+ 
   let lastDigitRemoved = display2.innerText.slice(0,display2.innerText.length -1)
   num2 = display2.innerText.slice(0,display2.innerText.length -1)
+  if(!num2.toString().includes('.')){
+    containDot = true;
+  }
+  if(!num2.toString().includes('-')){
+    containNegativeSign = true;
+  }
    return display2.textContent = lastDigitRemoved;
+   
    
 }
 document.querySelector('.cancel').addEventListener('click',removeLastDigit);
