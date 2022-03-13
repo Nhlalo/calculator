@@ -179,7 +179,7 @@ function clearAll(){
 document.querySelector('.clearSign').addEventListener('click',clearAll)
 
 function removeLastDigit(){
-
+if(!display2.innerText.includes('e'){
  
   let lastDigitRemoved = display2.innerText.slice(0,display2.innerText.length -1)
   num2 = display2.innerText.slice(0,display2.innerText.length -1)
@@ -190,7 +190,7 @@ function removeLastDigit(){
     containNegativeSign = true;
   }
    return display2.textContent = lastDigitRemoved;
-   
+   }
    
 }
 document.querySelector('.cancel').addEventListener('click',removeLastDigit);
